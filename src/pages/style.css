@@ -1,0 +1,106 @@
+.home-outer-div{
+    display: flex;
+    justify-content:space-evenly;
+}
+.image{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: center;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 40px;
+}
+.text-div{
+    width:45%;
+    height: 70vh;
+    flex-direction: column;
+    margin-top: 90px;
+    padding: 30px;
+    margin-left: 50px;
+}
+.link{
+    text-decoration: none;
+    color:white;
+}
+#mailIcon{
+    color:#e63946;
+    transform: scale(2.3);
+}
+#facebookIcon{
+    transform: scale(2.3);
+    color:#4361ee;
+}
+#instaIcon{
+    transform: scale(1.8);
+    background: #cc2b5e;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #753a88, #cc2b5e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #753a88, #cc2b5e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color:white;
+    border-radius: 15px;
+    padding: 4px;
+}
+.contact{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+.container{
+    background-color: #eceff1;
+    width: 300px;
+    height: 130px;
+    padding: 50px;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 130px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.outer-div{
+    display: flex;
+    background-color:#e0e0e0;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: left;
+    margin-top: 60px;
+    width:50%;
+    height: 60vh;
+    /* border-width: 5px;
+    border-color: black;
+    border-style: solid; */
+    border-radius: 5px;
+    box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.5), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+   
+}
+#button{
+    background-color: #7400b8;
+    width:200px;
+    height:50px;
+    color: white;
+    /* border-radius: 20px; */
+    font-size: 20px;
+    margin-right: 300px;
+}
+#questionField{
+    background-color: white;
+}
+.icon-div{
+    background-color: #bdbdbd;
+    width:100%;
+    height: 50px;
+    margin: 0px;
+ 
+    /* border-width: 3px;
+    border-color: black;
+    border-style: solid; */
+    /* border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; */
+}
+.sample{
+    margin-top: 40px;
+    margin-left: 30px;
+    
+}
