@@ -59,16 +59,13 @@
 }
 .outer-div{
     display: flex;
-    background-color:#e0e0e0;
+    background-color:#f1faee;
     align-items: flex-start;
     flex-direction: column;
     justify-content: left;
     margin-top: 60px;
     width:50%;
     height: 60vh;
-    /* border-width: 5px;
-    border-color: black;
-    border-style: solid; */
     border-radius: 5px;
     box-shadow: 0 7px 8px 0 rgba(0, 0, 0, 0.5), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
    

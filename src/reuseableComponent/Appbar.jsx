@@ -63,9 +63,7 @@ export default function Appbar({history}) {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+ 
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -121,7 +119,7 @@ export default function Appbar({history}) {
 
         <BarChartIcon id='barIcon'/>
         <Typography className={classes.title} variant="h6" noWrap>
-         <h2 style={{color:'#2b2c28'}}><span style={{color:'white'}}>Multilable</span>
+         <h2 style={{color:'#2b2c28'}}><span style={{color:'white'}}>Multi-label</span>
          </h2>
          
           </Typography>

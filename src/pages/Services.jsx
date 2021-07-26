@@ -4,15 +4,12 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
 import OutlinedInput from '@material-ui/core/OutlinedInput'
 import FormHelperText from '@material-ui/core/FormHelperText';
-import CloseIcon from '@material-ui/icons/Close';
-import MinimizeIcon from '@material-ui/icons/Minimize';
-import FilterNoneIcon from '@material-ui/icons/FilterNone';
 import '../pages/style.css'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
+import axios from 'axios'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -27,22 +24,29 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Services() {
     const classes = useStyles();
+    const [outputText, setoutputT] = useState(null)
 
     const schema = yup.object().shape({
-        questionField: yup.string().required("This field is required"),
+      inputText: yup.string().required("This field is required"),
         
       })
     
       const formik = useFormik(
         {
           initialValues: {
-            questionField: "",
-            lable:"",
+            inputText: "",
+            
             
           },
           validationSchema: schema,
           onSubmit: (data) => {
             console.log(data)
+            axios.post('http://127.0.0.1:8000/api/detect/', data).then(res => {
+              console.log(res)
+              setoutputT(res.data.outputText)
+            }).catch(err => {
+              console.log(err)
+            })
           }
         }
       )
@@ -53,15 +57,8 @@ export default function Services() {
       <center>
       
       <div className="outer-div">
-      <div className='icon-div'>
-           
-           <MinimizeIcon style={{marginTop:'5px',padding:'5px'}}/>
-           <FilterNoneIcon style={{marginTop:'5px'}}/>
-            <CloseIcon style={{}}/>
-           
-         </div>
          
-          <div className="sample">
+      <div className="sample">
       <form onSubmit={formik.handleSubmit} className={classes.root} noValidate autoComplete="off">
     
 <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
@@ -69,12 +66,12 @@ export default function Services() {
           <OutlinedInput
             id="questionField"
             aria-describedby="outlined-weight-helper-text"
-            name="questionField"
-            values={formik.values.questionField}
+            name="inputText"
+            values={formik.values.inputText}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            error={(formik.touched.questionField && formik.errors.questionField) ? true : false}
-            helperText={(formik.touched.questionField && formik.errors.questionField) ? formik.errors.questionField : ""}
+            error={(formik.touched.inputText && formik.errors.inputText) ? true : false}
+            helperText={(formik.touched.inputText && formik.errors.inputText) ? formik.errors.questionField : ""}
            style={{width:'600px'}}
           />
           
@@ -84,23 +81,11 @@ export default function Services() {
               Submit
             </Button>
             <br></br><br></br><br></br><br></br>
-            <br></br><br></br>
-            <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
-<FormHelperText id="outlined-weight-helper-text" style={{fontSize:18}}>Lable</FormHelperText>
-          <OutlinedInput
-            id="questionField"
-            aria-describedby="outlined-weight-helper-text"
-            name="lable"
-            values={formik.values.lable}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={(formik.touched.lable && formik.errors.lable) ? true : false}
-            helperText={(formik.touched.lable && formik.errors.lable) ? formik.errors.lable: ""}
-           style={{width:'400px'}}
-          />
-          
-        </FormControl>
             </form>
+            <div id="output">
+              <h1>Output Label</h1>
+              <h2 style={{color:'#7400b8'}}>{outputText ? outputText[0]:""}</h2>
+            </div>
             </div>
          
       </div>
